@@ -7,11 +7,23 @@ firebaseAuthntication();
 
 // firebase main hook here 
 const useFirebase = () => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({});
     const [error, setError] = useState('');
 
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
+
+    // getting the signin user inf o here 
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user)
+            }
+            else {
+                setUser({})
+            }
+        })
+    }, []);
 
     // signin with goole handler here 
     const googleSignIn = () => {
@@ -22,15 +34,6 @@ const useFirebase = () => {
             })
             .catch(error => setError(error.message))
     }
-
-    // getting the signin user inf o here 
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user)
-            }
-        })
-    }, []);
 
     // logout button here 
     // const logOutUser => {

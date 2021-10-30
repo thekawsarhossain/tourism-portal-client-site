@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
 import Rating from 'react-rating';
 import { useParams } from 'react-router';
+import useAuth from '../../../../Hooks/useAuth';
 import logo from '../../../../images/logo.webp';
+import './BookingPackage.css';
 
 const BookingPackage = () => {
+
+    const { user } = useAuth();
 
     const { id } = useParams();
 
@@ -17,18 +22,30 @@ const BookingPackage = () => {
             .then(data => setSinglePackage(data))
     }, [])
 
+    // react hook form data here  
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        fetch('http://localhost:5000/booked-packages', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(result => console.log(result))
+    }
+
 
     return (
         <div className="py-5">
-            <img src={logo} alt="" />
             <Container className="border border-2 my-4 p-3 px-4">
                 <Row>
                     {/* package info here  */}
-                    <Col md={5} className="border rounded p-0">
+                    <Col md={7} className="border rounded p-0">
                         <img className="img-fluid" src={singlePackage?.img} class="card-img-top" alt="..." />
                         <div className="py-2 px-3 text-start">
                             <div className="d-flex align-items-center justify-content-between"><h4>{singlePackage.name}</h4><small className="bg-danger text-light px-2 py-1 rounded-pill">{singlePackage.places} places</small></div>
                             <p className="mb-0">Duration: {singlePackage.duration} Day's</p>
+                            <p className="mb-0">Price: {singlePackage.price}</p>
                             <Rating
                                 initialRating={singlePackage.review}
                                 emptySymbol="far fa-star"
@@ -41,8 +58,27 @@ const BookingPackage = () => {
                     </Col>
 
                     {/* book form here  */}
-                    <Col md={7}>
-
+                    <Col md={5} className="p-2">
+                        <img src={logo} alt="" />
+                        <h4 className="border-bottom p-1">Book your package here!</h4>
+                        <form className="booking-form mx-auto p-3" onSubmit={handleSubmit(onSubmit)}>
+                            <input defaultValue={user.displayName} {...register("name")} />
+                            <input defaultValue={user.email} {...register("email")} />
+                            <input placeholder="Enter number" {...register("mobile")} />
+                            <input placeholder="Enter age" type="number" {...register("age", { min: 18, max: 99 })} />
+                            <select {...register("gender")}>
+                                <option value="male">male</option>
+                                <option value="female">female</option>
+                                <option value="other">other</option>
+                            </select>
+                            <select {...register("ticket-type")}>
+                                <option value="Select Type">Package Type</option>
+                                <option value="expensive">expensive</option>
+                                <option value="normal">normal</option>
+                            </select>
+                            <input defaultValue={singlePackage.price} {...register("price")} />
+                            <input className="btn btn-danger" type="submit" />
+                        </form>
                     </Col>
                 </Row>
             </Container>
