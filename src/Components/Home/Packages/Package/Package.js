@@ -17,7 +17,7 @@ const Package = ({ packages }) => {
         <Col md={6}>
             <Row className="border m-1 rounded">
                 <Col className="p-0" md={6}><img className="img-fluid rounded" src={img} alt="" /></Col>
-                <Col md={6} className="text-start py-1">
+                <Col md={6} className="text-start md:py-3 py-1">
                     <div className="d-flex align-items-center justify-content-between"><h5>{name} </h5> <small className="bg-danger text-light p-1 rounded-pill">{places} places</small></div>
                     <p className="mb-0">Duration: {duration} day</p>
                     <small className="text-secondary">{description.slice(0, 50)}...</small>

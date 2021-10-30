@@ -9,17 +9,18 @@ const Packages = () => {
     const [load, setLoad] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/packages')
+        fetch('https://calm-ravine-47843.herokuapp.com/packages')
             .then(response => response.json())
             .then(data => {
                 setPackages(data)
                 setLoad(true);
             })
+            .catch(error => console.log(error));
     }, [])
 
     return (
         <div>
-            <Container className="py-5">
+            <Container className="py-4">
                 <h6 className="text-danger fst-italic">Pacific Provide Places</h6>
                 <h2>Select Your Destination</h2>
 

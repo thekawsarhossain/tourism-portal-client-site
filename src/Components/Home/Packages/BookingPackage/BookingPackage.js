@@ -12,7 +12,7 @@ const BookingPackage = () => {
     const [singlePackage, setSinglePackage] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/package/${id}`)
+        fetch(`https://calm-ravine-47843.herokuapp.com/package/${id}`)
             .then(response => response.json())
             .then(data => setSinglePackage(data))
     }, [])

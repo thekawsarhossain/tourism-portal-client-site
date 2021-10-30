@@ -8,6 +8,8 @@ import AuthProvider from './Context/AuthProvider';
 import Packages from './Components/Home/Packages/Packages';
 import BookingPackage from './Components/Home/Packages/BookingPackage/BookingPackage';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import About from './Components/Home/About/About';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
             <Route path="/login"><Login></Login></Route>
             <Route path="/packages"><Packages></Packages></Route>
             <PrivateRoute path="/package/:id"> <BookingPackage></BookingPackage></PrivateRoute>
+            <Route path="/about"><About></About></Route>
           </Switch>
+          <Footer></Footer>
         </BrowserRouter>
       </AuthProvider>
     </div>
