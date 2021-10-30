@@ -6,11 +6,15 @@ const Packages = () => {
 
     // react hooks here 
     const [packages, setPackages] = useState([]);
-    console.log(packages)
+    const [load, setLoad] = useState(false);
+
     useEffect(() => {
         fetch('http://localhost:5000/packages')
             .then(response => response.json())
-            .then(data => setPackages(data))
+            .then(data => {
+                setPackages(data)
+                setLoad(true);
+            })
     }, [])
 
     return (
@@ -18,6 +22,12 @@ const Packages = () => {
             <Container className="py-5">
                 <h6 className="text-danger fst-italic">Pacific Provide Places</h6>
                 <h2>Select Your Destination</h2>
+
+                {/* spinner here  */}
+                <div className={!load ? "spinner-border text-danger mt-5" : " d-none"} mt-5 role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+
                 <Row className="gy-4 gx-4 my-3">
                     {
                         packages.map(item => <Package
