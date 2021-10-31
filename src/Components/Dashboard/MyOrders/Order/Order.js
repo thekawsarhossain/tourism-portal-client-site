@@ -7,7 +7,7 @@ const Order = ({ orders }) => {
     const handleOrder = id => {
         const proceed = window.confirm('Are you sure you want to DELETE ?');
         if (proceed) {
-            fetch(`http://localhost:5000/order/${id}`, {
+            fetch(`https://calm-ravine-47843.herokuapp.com/order/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' },
             })

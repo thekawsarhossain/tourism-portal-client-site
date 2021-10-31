@@ -6,7 +6,7 @@ const AllOrders = () => {
 
     const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://calm-ravine-47843.herokuapp.com/orders')
             .then(response => response.json())
             .then(data => setAllOrders(data))
     }, [])

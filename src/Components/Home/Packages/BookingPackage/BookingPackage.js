@@ -26,7 +26,7 @@ const BookingPackage = () => {
     // react hook form data here  
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/orders', {
+        fetch('https://calm-ravine-47843.herokuapp.com/orders', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
