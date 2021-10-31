@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import logo from '../../images/logo.webp';
 import profile from '../../images/profile.svg';
@@ -9,6 +9,7 @@ import { useHistory, useLocation } from 'react-router';
 const Login = () => {
 
     const { googleSignIn, error, setUser, setError } = useAuth();
+    const [loading, setLoading] = useState(true);
 
     const location = useLocation();
     const histroy = useHistory();
@@ -23,6 +24,7 @@ const Login = () => {
                 histroy.push(url);
             })
             .catch(error => setError(error.message))
+            .finally(() => setLoading(false))
     }
 
     return (

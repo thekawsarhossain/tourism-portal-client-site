@@ -37,6 +37,7 @@ const AllOrder = ({ orders }) => {
             <td>{ticketType}</td>
             <td>{price}</td>
             <td className="text-center"><button onClick={() => handleOrder(_id)} className="border-0 text-danger"><i class="fas fa-trash-alt"></i></button></td>
+            {!orders && <td>No Order found !</td>}
         </tr>
     );
 };
