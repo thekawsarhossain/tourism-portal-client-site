@@ -21,9 +21,9 @@ const Footer = () => {
                     </Col>
                     <Col md={5} className="p-2">
                         <h4>Have a Questions?</h4>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Your email" />
-                            <button class="btn btn-outline-danger" type="button">SEND</button>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Your email" />
+                            <button className="btn btn-outline-danger" type="button">SEND</button>
                         </div>
                     </Col>
                 </Row>

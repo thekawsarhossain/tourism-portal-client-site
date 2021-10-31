@@ -26,7 +26,7 @@ const Packages = () => {
 
                 {/* spinner here  */}
                 <div className={!load ? "spinner-border text-danger mt-5" : " d-none"} mt-5 role="status">
-                    <span class="visually-hidden">Loading...</span>
+                    <span className="visually-hidden">Loading...</span>
                 </div>
 
                 <Row className="gy-4 gx-4 my-3">

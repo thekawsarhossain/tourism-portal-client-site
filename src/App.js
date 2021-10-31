@@ -10,6 +10,9 @@ import BookingPackage from './Components/Home/Packages/BookingPackage/BookingPac
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import About from './Components/Home/About/About';
 import Footer from './Components/Footer/Footer';
+import MyOrders from './Components/Dashboard/MyOrders/MyOrders';
+import AllOrders from './Components/Dashboard/AllOrders/AllOrders';
+import AddPackages from './Components/Dashboard/AddPackages/AddPackages';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
             <Route path="/packages"><Packages></Packages></Route>
             <PrivateRoute path="/package/:id"> <BookingPackage></BookingPackage></PrivateRoute>
             <Route path="/about"><About></About></Route>
+            <PrivateRoute path="/my-orders"><MyOrders></MyOrders></PrivateRoute>
+            <PrivateRoute path="/all-orders"><AllOrders></AllOrders></PrivateRoute>
+            <PrivateRoute path="/add-package"><AddPackages></AddPackages></PrivateRoute>
           </Switch>
           <Footer></Footer>
         </BrowserRouter>

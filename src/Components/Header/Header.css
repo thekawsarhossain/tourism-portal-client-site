@@ -1,3 +1,23 @@
-.custom-navbar{
+.custom-btn{
+    position: relative;
+}
+.custom-modal{
+    position: absolute;
+    top:100%;
+    right: 12%;
+    background: #fff;
+    padding: 12px 20px;
 
+}
+
+
+@media screen and (max-width: 767px) {
+    .custom-modal{
+        position: absolute;
+        top: 100%;
+        right: 35%;
+        background: #fff;
+        padding: 12px 20px;
+    
+    }
 }
