@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
 const AllOrder = ({ orders }) => {
 
-    const { name, email, mobile, age, gender, ticketType, price, _id } = orders;
+    const { packageName, name, email, mobile, age, gender, ticketType, status, price, _id } = orders;
 
     // deleting order here 
     const handleOrder = id => {
@@ -29,6 +29,7 @@ const AllOrder = ({ orders }) => {
 
     return (
         <tr>
+            <td>{packageName}</td>
             <td>{name}</td>
             <td>{email}</td>
             <td>{mobile}</td>
@@ -36,7 +37,13 @@ const AllOrder = ({ orders }) => {
             <td>{gender}</td>
             <td>{ticketType}</td>
             <td>{price}</td>
-            <td className="text-center"><button onClick={() => handleOrder(_id)} className="border-0 text-danger"><i class="fas fa-trash-alt"></i></button></td>
+            <td>{status}</td>
+            <td className="text-center">
+                <button onClick={() => handleOrder(_id)} className="border-0 text-danger border"><i class="fas fa-trash-alt"></i></button>
+            </td>
+            <td className="text-center">
+                <button className="border-0 text-danger border"><i class="fas fa-clipboard-check"></i></button>
+            </td>
             {!orders && <td>No Order found !</td>}
         </tr>
     );

@@ -29,9 +29,7 @@ const useFirebase = () => {
 
     // signin with goole handler here 
     const googleSignIn = () => {
-        setLoading(true);
         return signInWithPopup(auth, googleProvider)
-            .finally(() => setLoading(false))
     }
 
     // logout button here 

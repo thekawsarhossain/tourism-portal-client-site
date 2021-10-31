@@ -9,6 +9,7 @@ Travelo is fullstack web application using react js,node, mongodb and express
 - we also used here private route using react route .
 - we added authntication system in our website .
 - we make user dashboard so that they can access the things that they order or do.
+- The dashboard in the user image, if you click the imaage then you get the dashboard and the dash board is protected. 
 - we use mongodb to keep data there as a database .
 - we used node, express as well .
 

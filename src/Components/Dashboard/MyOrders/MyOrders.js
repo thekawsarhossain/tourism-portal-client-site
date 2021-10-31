@@ -7,14 +7,10 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('https://calm-ravine-47843.herokuapp.com/orders')
+        fetch(`https://calm-ravine-47843.herokuapp.com/myOrders/${user.email}`)
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [])
-
-    // logged in users data here 
-    const loggedInUserData = orders.filter(order => order.email === user.email);
-    console.log(loggedInUserData)
 
     return (
         <Container className="my-4 text-start">
@@ -23,6 +19,7 @@ const MyOrders = () => {
                 <Table striped bordered hover responsive="md">
                     <thead>
                         <tr>
+                            <td>Package Name</td>
                             <td>Name</td>
                             <td>Email</td>
                             <td>Mobile</td>
@@ -30,14 +27,15 @@ const MyOrders = () => {
                             <td>Gender</td>
                             <td>Ticket Type</td>
                             <td>Price</td>
+                            <td>Status</td>
                             <td>Action</td>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            loggedInUserData.map(userData => <Order
-                                key={userData._id}
-                                orders={userData}
+                            orders.map(order => <Order
+                                key={order._id}
+                                orders={order}
                             ></Order>)
                         }
                     </tbody>

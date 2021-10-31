@@ -19,6 +19,7 @@ const AllOrders = () => {
                     <Table striped bordered hover responsive="md">
                         <thead>
                             <tr>
+                                <td>Package Name</td>
                                 <td>Name</td>
                                 <td>Email</td>
                                 <td>Mobile</td>
@@ -26,12 +27,14 @@ const AllOrders = () => {
                                 <td>Gender</td>
                                 <td>Ticket Type</td>
                                 <td>Price</td>
-                                <td>Action</td>
+                                <td>Status</td>
+                                <td>Delete</td>
+                                <td>Approve</td>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                allOrders.map(order => <AllOrder
+                                allOrders.map((order) => <AllOrder
                                     key={order._id}
                                     orders={order}
                                 ></AllOrder>)

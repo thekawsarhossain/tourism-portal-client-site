@@ -28,7 +28,7 @@ const Header = () => {
         <div className="custom-navbar">
             <Navbar bg="light" expand="lg" className="shadow shadow">
                 <Container>
-                    <Navbar.Brand href="#home"><img src={logo} alt="" /></Navbar.Brand>
+                    <NavLink to="/home"><img src={logo} alt="" /></NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mx-auto">
@@ -41,7 +41,7 @@ const Header = () => {
                         {/* authentication button here  */}
                         <div>
                             {
-                                !user?.email ? <Link to="/login"><Button variant="outline-danger" className="mx-2">Login</Button></Link> : <button onClick={handleModal} className="border-0 bg-light custom-btn" alt="" ><img className="w-50 rounded-circle p-2" src={user.photoURL} alt="" /></button>
+                                !user?.email ? <Link to="/login"><Button variant="outline-danger" className="mx-2">Login</Button></Link> : <button onClick={handleModal} className="border-0 bg-light custom-btn" alt="" ><img className={modal ? " border border-2 border-danger w-50 rounded-circle" : "w-50 rounded-circle"} src={user.photoURL} alt="" /></button>
                             }
                         </div>
                         {/* avatar modal */}
@@ -60,6 +60,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-//<small className="p-1 text-secondary text-uppercase fst-italic fw-bold">{user.displayName}</small> 
