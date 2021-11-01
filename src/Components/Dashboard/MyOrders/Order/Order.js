@@ -37,7 +37,7 @@ const Order = ({ orders }) => {
             <td>{ticketType}</td>
             <td>{price}</td>
             <td>{status}</td>
-            <td className="text-center"><button onClick={() => handleOrder(_id)} className="border-0 text-danger"><i class="fas fa-trash-alt"></i></button></td>
+            <td className="text-center"><button onClick={() => handleOrder(_id)} className="border-0 text-danger"><i className="fas fa-trash-alt"></i></button></td>
         </tr>
     );
 };

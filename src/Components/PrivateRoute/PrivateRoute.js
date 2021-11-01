@@ -7,8 +7,8 @@ const PrivateRoute = ({ children, ...rest }) => {
     const { user, loading } = useAuth();
 
     if (loading) {
-        return <div class="spinner-border text-danger my-5" role="status">
-            <span class="visually-hidden">Loading...</span>
+        return <div className="spinner-border text-danger my-5" role="status">
+            <span className="visually-hidden">Loading...</span>
         </div>
     }
 
