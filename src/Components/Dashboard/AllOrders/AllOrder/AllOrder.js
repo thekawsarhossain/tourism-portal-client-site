@@ -29,7 +29,7 @@ const AllOrder = ({ orders }) => {
 
     // update status handler here 
     const handleStatus = id => {
-        fetch(`https://calm-ravine-47843.herokuapp.com/orders${id}`, {
+        fetch(`https://calm-ravine-47843.herokuapp.com/orders/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
         })
@@ -62,7 +62,7 @@ const AllOrder = ({ orders }) => {
                 <button onClick={() => handleOrder(_id)} className="border-0 text-danger border"><i className="fas fa-trash-alt"></i></button>
             </td>
             <td className="text-center">
-                {status === 'approved' ? <i class="text-danger fas fa-bookmark"></i> : <button onClick={() => handleStatus(_id)} className="border-0 text-danger border"><i className="fas fa-clipboard-check"></i></button>}
+                {status === 'approved' ? <i className="text-danger fas fa-bookmark"></i> : <button onClick={() => handleStatus(_id)} className="border-0 text-danger border"><i className="fas fa-clipboard-check"></i></button>}
             </td>
             {!orders && <td>No Order found !</td>}
         </tr>
