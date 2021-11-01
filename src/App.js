@@ -13,6 +13,7 @@ import Footer from './Components/Footer/Footer';
 import MyOrders from './Components/Dashboard/MyOrders/MyOrders';
 import AllOrders from './Components/Dashboard/AllOrders/AllOrders';
 import AddPackages from './Components/Dashboard/AddPackages/AddPackages';
+import PageNotFound from './Components/PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <PrivateRoute path="/my-orders"><MyOrders></MyOrders></PrivateRoute>
             <PrivateRoute path="/all-orders"><AllOrders></AllOrders></PrivateRoute>
             <PrivateRoute path="/add-package"><AddPackages></AddPackages></PrivateRoute>
+            <Route path="*"><PageNotFound></PageNotFound></Route>
           </Switch>
           <Footer></Footer>
         </BrowserRouter>
