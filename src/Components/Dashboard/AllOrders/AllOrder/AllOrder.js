@@ -29,7 +29,7 @@ const AllOrder = ({ orders }) => {
 
     // update status handler here 
     const handleStatus = id => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://calm-ravine-47843.herokuapp.com/orders${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
         })
